@@ -7133,7 +7133,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["{\n            posts {\n                id\n            }\n         }"]);
+  var data = _taggedTemplateLiteral(["{\n            users {\n                id\n            }\n        }"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -7158,7 +7158,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   apollo: {
-    query: graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject())
+    users: graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject())
   }
 });
 
@@ -50141,17 +50141,13 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("h1", [_vm._v("Users")]),
     _vm._v(" "),
-    !_vm.$apolloData.loading
-      ? _c(
-          "ul",
-          _vm._l(_vm.users, function(user) {
-            return _c("li", { key: user.id }, [
-              _c("b", [_vm._v(_vm._s(user.id))])
-            ])
-          }),
-          0
-        )
-      : _vm._e()
+    _c(
+      "ul",
+      _vm._l(_vm.users, function(user) {
+        return _c("li", { key: user.id }, [_c("b", [_vm._v(_vm._s(user.id))])])
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = []

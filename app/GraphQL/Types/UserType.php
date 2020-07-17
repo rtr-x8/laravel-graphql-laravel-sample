@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 namespace App\GraphQL\Types;
-
+use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
 // use App\GraphQL\Scalars\EmailType;
 
@@ -19,23 +19,24 @@ class UserType extends GraphQLType
     {
         return [
             'id' => [
-                'type' => Type::nonNull(Type::int()),
+                'type' => Type::int(),
                 'description' => 'The id onf the user',
             ],
             'email' => [
                 'type' => [
-                    'type' => Type::String(),
+                    'type' => Type::string(),
                     'description' => 'The Email of user',
                     'resoleve' => function($root, $args) {
                         return strtolower($root->email);
                     }
                 ]
             ],
+            /*
             'isMe' => [
                 'type' => Type::boolean(),
                 'description' => 'if user is logined, return true',
                 'selectable' => false // DBから取得しない
-            ]
+            ]*/
         ];
     }
 }
