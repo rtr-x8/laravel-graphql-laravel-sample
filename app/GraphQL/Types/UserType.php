@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\GraphQL\Types;
 
 use Rebing\GraphQL\Support\Type as GraphQLType;
-use App\GraphQL\Scalars\EmailType;
+// use App\GraphQL\Scalars\EmailType;
 
 class UserType extends GraphQLType
 {
@@ -19,12 +19,12 @@ class UserType extends GraphQLType
     {
         return [
             'id' => [
-                'type' => Type::nonNull(Type::id()),
+                'type' => Type::nonNull(Type::int()),
                 'description' => 'The id onf the user',
             ],
             'email' => [
                 'type' => [
-                    'type' => Type::EmailType(),
+                    'type' => Type::String(),
                     'description' => 'The Email of user',
                     'resoleve' => function($root, $args) {
                         return strtolower($root->email);

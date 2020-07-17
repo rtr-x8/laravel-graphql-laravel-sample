@@ -33,19 +33,23 @@ class UsersQuery extends Query
             ],
             'email' => [
                 'name' => 'email',
-                'type' => Type::EmailType()
+                'type' => Type::String()
             ]
         ];
     }
 
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
-        /** @var SelectFields $fields */
-        $fields = $getSelectFields();
-        $select = $fields->getSelect();
-        $with = $fields->getRelations();
+        /*
+        if (isset($args['id'])) {
+            return User::where('id' , $args['id'])->get();
+        }
 
-        $users = User::select($select)->with($with);
-        return $users->get();
+        if (isset($args['email'])) {
+            return User::where('email', $args['email'])->get();
+        }
+        */
+
+        return User::all();
     }
 }

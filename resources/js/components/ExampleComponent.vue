@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <h1>Posts</h1>
-        <ul>
-            <li v-for="post in posts">
-                <b>{{ post.title }}</b> - <i>{{ post.author.name }}</i>
+        <h1>Users</h1>
+        <ul v-if="!$apolloData.loading">
+            <li v-for="user in users" v-bind:key="user.id">
+                <b>{{ user.id }}</b>
             </li>
         </ul>
     </div>
@@ -16,11 +16,7 @@
         apollo: {
             query: gql`{
                 posts {
-                    title
-                    author {
-                        name
-                        id
-                    }
+                    id
                 }
              }`,
         }
