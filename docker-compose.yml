@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  gqll-mariadb:
+  mariadb:
     image: 'docker.io/bitnami/mariadb:10.1-debian-10'
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
@@ -9,7 +9,7 @@ services:
       - MARIADB_DATABASE=my_database
       - MARIADB_PASSWORD=my_password
 
-  gqll-web:
+  myapp:
     tty: true
     image: docker.io/bitnami/laravel:7-debian-10
     environment:
@@ -18,7 +18,7 @@ services:
       - DB_DATABASE=my_database
       - DB_PASSWORD=my_password
     depends_on:
-      - gqll-mariadb
+      - mariadb
     ports:
       - 3000:3000
     volumes:
